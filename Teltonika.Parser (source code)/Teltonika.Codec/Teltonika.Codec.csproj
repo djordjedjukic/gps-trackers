@@ -1,0 +1,74 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{ACDD9297-9972-4D62-B7BD-1EF04ED067D6}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>Teltonika.Codec</RootNamespace>
+    <AssemblyName>Teltonika.Codec</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Core" />
+    <Reference Include="Teltonika.IO">
+      <HintPath>..\Teltonika.IO\Teltonika.IO.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="DataDecoder.cs" />
+    <Compile Include="BytesSwapper.cs" />
+    <Compile Include="CRC.cs" />
+    <Compile Include="Codecs\Codec8.cs" />
+    <Compile Include="Codecs\Codec7.cs" />
+    <Compile Include="EndianBitConverter.cs" />
+    <Compile Include="Model\AvlData.cs" />
+    <Compile Include="Model\AvlDataPriority.cs" />
+    <Compile Include="Model\AvlDataCollection.cs" />
+    <Compile Include="Model\FieldEncoding.cs" />
+    <Compile Include="Model\Codec7\GlobalMaskCodec7.cs" />
+    <Compile Include="Model\Codec7\GpsElementMaskCodec7.cs" />
+    <Compile Include="Model\GpsElement.cs" />
+    <Compile Include="Model\Codec7\GpsElementExt.cs" />
+    <Compile Include="Model\IoElement.cs" />
+    <Compile Include="Model\IoProperty.cs" />
+    <Compile Include="Model\TcpDataPacket.cs" />
+    <Compile Include="Model\UdpDataPacket.cs" />
+    <Compile Include="ReverseBinaryReader.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>
